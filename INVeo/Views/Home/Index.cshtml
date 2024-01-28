@@ -1,0 +1,181 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .bgColor {
+        background: #E6ECEE;
+    }
+
+    .rounded-1 {
+        border-radius: 0.5rem; 
+    }
+
+    .welcome-text {
+        padding: 40px;
+    }
+
+    .join-button {
+        background-color: #fff;     
+        color: #007bff; 
+        border: 2px solid #fff; 
+    }
+
+    .about-section {
+        background-color: #ffffff; 
+        padding: 40px;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 40px;
+    }
+
+        .about-section h2,
+        .about-section p {
+            color: #333;
+        }
+
+    .focus-section {
+        background-color: #f8f9fa; 
+        padding: 40px;
+        border-radius: 0.5rem;
+        margin-bottom: 40px;
+    }
+
+    .focus-area {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+        .focus-area img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+    
+    .projects-section {
+        background-color: #fff; 
+        padding: 40px;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+        .projects-section h2,
+        .projects-section p {
+            color: #333; 
+        }
+
+    .sample-idea-button {
+        background-color: #28a745; 
+        color: #fff; 
+        border: 2px solid #28a745; 
+    }
+
+        .sample-idea-button:hover {
+            background-color: #218838;
+            border-color: #218838; 
+        }
+
+    .sample-idea-button {
+        background-color: #28a745; 
+        color: #fff; 
+        border: 2px solid #28a745; 
+    }
+
+        .sample-idea-button:hover {
+            background-color: #218838; 
+            border-color: #218838;
+        }
+
+
+    .contact-section {
+        background-color: #f8f9fa; 
+        padding: 40px;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+        .contact-section h2,
+        .contact-section p,
+        .contact-section a {
+            color: #333; 
+        }
+
+            .contact-section a:hover {
+                color: #007bff; 
+            }
+</style>
+
+<div class="container text-center">
+
+    <!--welcome section -->
+    <section class="mt-5 row bgColor rounded-1">
+        <div class="col-md-6">
+            <div class="welcome-text">
+                <h1 class="display-4">WELCOME TO THE FUTURE<br>of innovation and investment in INVeo.</h1>
+                <p>We're excited to help you achieve your investment goals.</p>
+                <a href="#" class="btn btn-dark join-button">JOIN</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="/imgs/Home.JPG" class="img-fluid h-100" alt="Welcome Image">
+        </div>
+    </section>
+
+    <!--about section -->
+    <section class="mt-5 row about-section">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">About iNVeo</h2>
+            <p class="lead text-center">
+                A website that facilitates the process of financing
+                emerging projects by connecting investors and
+                innovator in a secure and transparent manner
+                using blockchain technology.
+            </p>
+        </div>
+    </section>
+
+    <!--main focus section -->
+    <section class="mt-5 row focus-section rounded-1">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Main Focus</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="focus-area">
+                        <img src="~/imgs/investor-icon.png" alt="Investor icon" class="img-fluid">
+                        <h3>Investor</h3>
+                        <p>Discover and invest in innovative projects with high potential returns.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="focus-area">
+                        <img src="~/imgs/innovator-icon.png" alt="Innovator icon" class="img-fluid">
+                        <h3>Innovator</h3>
+                        <p>Showcase your innovative projects and connect with potential investors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--projects section -->
+    <section class="mt-5 projects-section rounded-1">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Our Projects</h2>
+            <p class="lead text-center">Explore our current and upcoming projects.</p>
+            <a href="projects.html" class="btn btn-success sample-idea-button">Sample Idea</a>
+        </div>
+    </section>
+
+    <!--contact section -->
+    <section class="mt-5 mb-5 contact-section rounded-1">
+        <div class="col-md-12">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <p class="lead text-center">Get in touch with us to learn more about INVeo.</p>
+            <a href="mailto:info@inveo.com">info@inveo.com</a>
+        </div>
+    </section>
+</div>
+

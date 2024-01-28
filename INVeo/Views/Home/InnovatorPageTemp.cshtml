@@ -1,0 +1,112 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .user-info,
+    .requests,
+    .idea-form {
+        background-color: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        color: darkslategray;
+    }
+
+    p {
+        color: #555; 
+    }
+
+    .request-card {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 0.3rem;
+    }
+
+    .request-card h3 {
+        color: #007bff; 
+    }
+
+    .buttons button {
+        margin-right: 10px;
+    }
+
+    .idea-form form {
+        margin-top: 20px;
+    }
+
+    label {
+        color: #333; 
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 0.3rem;
+    }
+
+    button[type="submit"] {
+        background-color: #28a745; 
+        color: #fff; 
+        border: 2px solid #28a745; 
+        border-radius: 0.3rem;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #218838; 
+        border-color: #218838; 
+    }
+</style>
+
+<div class="container text-center">
+
+    <!--Information about Innovator Section -->
+    <section class="user-info">
+        <h2>Innovator Name</h2>
+        <p>Experiences...</p>
+    </section>
+
+    <!--Requests Section -->
+    <section class="requests">
+        <h2>Requests</h2>
+        <div class="request-card">
+            <h3>Request 1</h3>
+            <p>Fiets Restaurant</p>
+            <div class="buttons">
+                <button class="btn btn-success">Accept</button>
+                <button class="btn btn-danger">Decline</button>
+            </div>
+        </div>
+    </section>
+
+    <!--Create idea Section -->
+    <section class="idea-form">
+        <h2>Create an Idea</h2>
+        <form>
+            <label for="idea-name">Idea Name:</label>
+            <input type="text" id="idea-name">
+            <label for="brief">Brief:</label>
+            <textarea id="brief"></textarea>
+            <label for="file">Optional File:</label>
+            <input type="file" id="file">
+            <button type="submit" class="btn btn-primary">Create +</button>
+        </form>
+    </section>
+
+</div>
