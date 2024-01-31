@@ -1,4 +1,6 @@
-﻿@*
+﻿@model INVeo.Models.Idea 
+
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -98,14 +100,22 @@
     <!--Create idea Section -->
     <section class="idea-form">
         <h2>Create an Idea</h2>
-        <form>
-            <label for="idea-name">Idea Name:</label>
-            <input type="text" id="idea-name">
-            <label for="brief">Brief:</label>
-            <textarea id="brief"></textarea>
+        <form asp-controller="Ideas" asp-action="create">
+            <div class="form-group">
+                <label class="control-label">Idea Name:</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brief" class="control-label">:</label>
+                <input asp-for="Brief" class="form-control" />
+                <span asp-validation-for="Brief" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
             <label for="file">Optional File:</label>
             <input type="file" id="file">
-            <button type="submit" class="btn btn-primary">Create +</button>
         </form>
     </section>
 
