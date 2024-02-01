@@ -24,4 +24,8 @@
     <PackageReference Include="Nethereum.Web3" Version="4.18.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\UploadedFiles\" />
+  </ItemGroup>
+
 </Project>

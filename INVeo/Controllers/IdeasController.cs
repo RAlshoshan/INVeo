@@ -9,6 +9,7 @@ using INVeo.Data;
 using INVeo.Models;
 using System.Text;
 using System.Security.Cryptography;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace INVeo.Controllers
 {
@@ -58,8 +59,23 @@ namespace INVeo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Brief,IsAccepted")] Idea idea)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brief,IsAccepted")] Idea idea, IFormFile ideaFile)
         {
+            // Uploaded files by use GUID
+            if (ideaFile != null)
+            {
+                var ideaFileName = Guid.NewGuid().ToString() + ".jpg";
+
+                var ideaFileFullPath = System.IO.Path.Combine(
+                    System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", ideaFileName);
+
+                using (var stream = new System.IO.FileStream(ideaFileFullPath, System.IO.FileMode.Create))
+                {
+                    await ideaFile.CopyToAsync(stream);
+                }
+
+                idea.IdeaFile = ideaFileName;
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(idea);
@@ -96,6 +112,7 @@ namespace INVeo.Controllers
             {
                 return NotFound();
             }
+            
 
             if (ModelState.IsValid)
             {
