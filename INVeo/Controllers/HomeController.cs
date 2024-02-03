@@ -28,6 +28,8 @@ namespace INVeo.Controllers
         }
         public IActionResult InvestorPageTemp()
         {
+            //var ideas = _context.Ideas.ToList(); // Assuming _context is your DbContext
+            //return View(ideas);
             return View();
         }
         public IActionResult Privacy()
