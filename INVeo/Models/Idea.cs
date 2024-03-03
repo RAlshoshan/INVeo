@@ -1,4 +1,6 @@
-﻿namespace INVeo.Models
+﻿using System.Runtime.CompilerServices;
+
+namespace INVeo.Models
 {
     public class Idea
     {

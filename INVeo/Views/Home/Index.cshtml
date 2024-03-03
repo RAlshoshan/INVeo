@@ -115,7 +115,7 @@
             <div class="welcome-text">
                 <h1 class="display-4">WELCOME TO THE FUTURE<br>of innovation and investment in INVeo.</h1>
                 <p>We're excited to help you achieve your investment goals.</p>
-                <a href="#" class="btn btn-dark join-button">JOIN</a>
+                <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-dark join-button">JOIN</a>
             </div>
         </div>
         <div class="col-md-6">
@@ -165,7 +165,7 @@
         <div class="col-md-12">
             <h2 class="text-center mb-4">Our Projects</h2>
             <p class="lead text-center">Explore our current and upcoming projects.</p>
-            <a href="projects.html" class="btn btn-success sample-idea-button">Sample Idea</a>
+            <a asp-controller="Home" asp-action="Gallery" class="btn btn-success sample-idea-button">Sample Idea</a>
         </div>
     </section>
 

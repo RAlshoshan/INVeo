@@ -59,23 +59,23 @@ namespace INVeo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Brief,IsAccepted")] Idea idea, IFormFile ideaFile)
+        public async Task<IActionResult> Create([Bind("Id,Name,Brief,IsAccepted")] Idea idea)
         {
-            // Uploaded files by use GUID
-            if (ideaFile != null)
-            {
-                var ideaFileName = Guid.NewGuid().ToString() + ".jpg";
+            //// Uploaded files by use GUID
+            //if (ideaFile != null)
+            //{
+            //    var ideaFileName = Guid.NewGuid().ToString() + ".jpg";
 
-                var ideaFileFullPath = System.IO.Path.Combine(
-                    System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", ideaFileName);
+            //    var ideaFileFullPath = System.IO.Path.Combine(
+            //        System.IO.Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles", ideaFileName);
 
-                using (var stream = new System.IO.FileStream(ideaFileFullPath, System.IO.FileMode.Create))
-                {
-                    await ideaFile.CopyToAsync(stream);
-                }
+            //    using (var stream = new System.IO.FileStream(ideaFileFullPath, System.IO.FileMode.Create))
+            //    {
+            //        await ideaFile.CopyToAsync(stream);
+            //    }
 
-                idea.IdeaFile = ideaFileName;
-            }
+            //    idea.IdeaFile = ideaFileName;
+            //}
             if (ModelState.IsValid)
             {
                 _context.Add(idea);
