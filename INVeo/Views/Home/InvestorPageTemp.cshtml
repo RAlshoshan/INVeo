@@ -1,4 +1,6 @@
-﻿<title>Sample Page</title>
+﻿@model IEnumerable<INVeo.Models.Idea>
+
+<title>Sample Page</title>
 <style>
 
     .main-content {
@@ -73,3 +75,16 @@
 </div>
 
 
+
+    <!-- Idea brief section -->
+    <h2>Ideas</h2>
+    <div class="main-content">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                @Html.DisplayFor(modelItem => item.Name)
+                <p>Idea brief</p>
+                @Html.DisplayFor(modelItem => item.Brief)
+            </div>
+        }
+    </div>

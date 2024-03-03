@@ -4,6 +4,9 @@
     ViewData["Title"] = "Index";
 }
 
+@if (User.IsInRole("Admin"))
+{
+    
 <h1>Index</h1>
 
 <p>
@@ -51,6 +54,7 @@
 }
     </tbody>
 </table>
+}
 
 
                 
@@ -74,8 +78,23 @@
         flex: 1 0 250px;
     }
 
+    .user-info {
+        background-color: #fff;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin-bottom: 30px;
+    }
+
 </style>
 
+<div class="container text-center">
+    <!--Information about Investor Section -->
+    <section class="user-info">
+        <h2>Investor Name</h2>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="ViewContract">View Contracts</a>
+    </section>
+</div>
 <!-- Idea brief section -->
 <h2>Ideas</h2>
 <div class="main-content">
