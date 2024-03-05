@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<INVeo.Models.Idea>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Index";
@@ -57,7 +60,7 @@
 }
 
 
-                
+
             <!--test-->
             
 <title>Sample Page</title>
@@ -88,13 +91,20 @@
 
 </style>
 
-<div class="container text-center">
-    <!--Information about Investor Section -->
-    <section class="user-info">
-        <h2>Investor Name</h2>
-        <a class="btn btn-secondary" asp-controller="Home" asp-action="ViewContract">View Contracts</a>
-    </section>
-</div>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="container text-center">
+        <!--Information about Investor Section -->
+        <section class="user-info">
+            <h2>Investor Name: @User.Identity?.Name</h2>
+            <a class="btn btn-secondary" asp-controller="Home" asp-action="ViewContract">View Contracts</a>
+        </section>
+    </div>
+    
+}
+
+
 <!-- Idea brief section -->
 <h2>Ideas</h2>
 <div class="main-content">
@@ -103,6 +113,7 @@
         @Html.DisplayFor(modelItem => item.Name)
         <p>Idea brief</p>
         @Html.DisplayFor(modelItem => item.Brief)
+            <a asp-action="DetailsForInvestor" asp-route-id="@item.Id">Details</a>
     </div>
     }
 </div>

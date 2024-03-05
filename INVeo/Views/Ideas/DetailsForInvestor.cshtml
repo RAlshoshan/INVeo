@@ -1,0 +1,42 @@
+﻿@model INVeo.Models.Idea
+
+
+<h1>Details</h1>
+
+<div>
+    <h4>Idea</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Brief)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Brief)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAccepted)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsAccepted)
+        </dd>
+        <div class="form-group">
+            <label asp-for="IdeaFile" class="control-label">IdeaFile</label>
+            <img src="~/UploadedFiles/model.IdeaFile" width="400" />
+        </div>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+
+
+

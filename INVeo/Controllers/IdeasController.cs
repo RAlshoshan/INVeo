@@ -30,6 +30,24 @@ namespace INVeo.Controllers
                           Problem("Entity set 'ApplicationDbContext.Idea'  is null.");
         }
 
+        // GET: DetailsForInvestor
+        public async Task<IActionResult> DetailsForInvestor(int? id)
+        {
+            if (id == null || _context.Idea == null)
+            {
+                return NotFound();
+            }
+
+            var idea = await _context.Idea
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (idea == null)
+            {
+                return NotFound();
+            }
+
+            return View(idea);
+        }
+
         // GET: Ideas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
