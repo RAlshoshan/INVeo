@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AbiTypeProvider" Version="0.0.9" />
+    <PackageReference Include="AbiTypeProviderFromTruffle" Version="0.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.16" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.16" />
@@ -21,7 +23,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="Nethereum.Generators" Version="4.12.0" />
     <PackageReference Include="Nethereum.Web3" Version="4.18.0" />
+    <PackageReference Include="Solidity.Roslyn.Core" Version="0.1.25" />
   </ItemGroup>
 
   <ItemGroup>

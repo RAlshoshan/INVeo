@@ -19,10 +19,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                    @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Brief)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsAccepted)
@@ -37,10 +37,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                  @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Brief)
+                  @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsAccepted)
@@ -110,9 +110,9 @@
 <div class="main-content">
     @foreach (var item in Model){
     <div class="card">
-        @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.Title)
         <p>Idea brief</p>
-        @Html.DisplayFor(modelItem => item.Brief)
+            @Html.DisplayFor(modelItem => item.Description)
             <a asp-action="DetailsForInvestor" asp-route-id="@item.Id">Details</a>
     </div>
     }

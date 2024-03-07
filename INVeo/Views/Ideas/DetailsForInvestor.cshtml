@@ -8,16 +8,28 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Title)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Title)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Brief)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Brief)
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdeaId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdeaId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Seller)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Seller)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IsAccepted)
@@ -25,11 +37,43 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.IsAccepted)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IsAvailable)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IsAvailable)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SmartContractAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SmartContractAddress)
+        </dd>
         <div class="form-group">
             <label asp-for="IdeaFile" class="control-label">IdeaFile</label>
             <img src="~/UploadedFiles/model.IdeaFile" width="400" />
         </div>
     </dl>
+</div>
+<div>
+    <div class="row">
+        <div class="col-sm-4">
+
+            <form>
+                <a asp-action="" class="btn btn-dark">Request with Constraints</a>
+                <textarea>Write constraints here.. </textarea>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <a asp-action="" class="btn btn-dark">Accept and Request</a>
+        </div>
+    </div>
 </div>
 <div>
     <a asp-action="Index">Back to List</a>

@@ -104,13 +104,40 @@
         <form asp-controller="Ideas" asp-action="create">
             <div class="form-group">
                 <label class="control-label">Idea Name:</label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Brief" class="control-label">Brief:</label>
-                <input asp-for="Brief" class="form-control" />
-                <span asp-validation-for="Brief" class="text-danger"></span>
+                <label asp-for="Description" class="control-label">Description:</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdeaId" class="control-label">IdeaId:</label>
+                <input asp-for="IdeaId" class="form-control" />
+                <span asp-validation-for="IdeaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller" class="control-label">Seller:</label>
+                <input asp-for="Seller" class="form-control" />
+                <span asp-validation-for="Seller" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Price:</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <!--
+            <div class="form-group">
+                <label asp-for="IsAvailable" class="control-label">IsAvailable:</label>
+                <input asp-for="IsAvailable" class="form-control" />
+                <span asp-validation-for="IsAvailable" class="text-danger"></span>
+            </div>
+            -->
+            <div class="form-group">
+                <label asp-for="SmartContractAddress" class="control-label">SmartContractAddress:</label>
+                <input asp-for="SmartContractAddress" class="form-control" />
+                <span asp-validation-for="SmartContractAddress" class="text-danger"></span>
             </div>
             <div class="form-group col">
                 <label asp-for="IdeaFile" class="control-label">IdeaFile</label>
