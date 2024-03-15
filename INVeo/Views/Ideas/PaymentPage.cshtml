@@ -1,0 +1,98 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Payment Page</h1>
+
+<form id="payment-form">
+    <label for="card-number">Card Number:</label>
+    <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required><br><br>
+
+    <label for="expiry-date">Expiry Date:</label>
+    <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" required><br><br>
+
+    <label for="cvv">CVV:</label>
+    <input type="text" id="cvv" name="cvv" placeholder="123" required><br><br>
+
+    <button type="submit" class=" btn btn-dark">Pay Now</button>
+</form>
+
+<!-- JavaScript code for payment -->
+<script>
+    // Initialize payment functionality
+    V.init({
+        apikey: "YOUR_API_KEY", // Replace with your actual API key
+        paymentRequest: {
+            currencyCode: "USD",
+            total: "100.00",
+        }
+    });
+
+    // Event listeners for payment success, cancellation, and error
+    V.on("payment.success", function (payment) {
+        // Handle payment success
+        console.log("Payment Successful: ", payment);
+        // You can also redirect to a success page or perform other actions here
+    });
+
+    V.on("payment.cancel", function (payment) {
+        // Handle payment cancellation
+        console.log("Payment Cancelled");
+        // You can display a message to the user or perform other actions here
+    });
+
+    V.on("payment.error", function (payment, error) {
+        // Handle payment error
+        console.log("Payment Error: ", error);
+        // You can display an error message to the user or perform other actions here
+    });
+
+    // Handle form submission for payment
+    document.getElementById("payment-form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+        var formData = new FormData(event.target); // Get form data
+        var cardNumber = formData.get("card-number");
+        var expiryDate = formData.get("expiry-date");
+        var cvv = formData.get("cvv");
+
+        // Call payment function with card details
+        V.payment({
+            cardNumber: cardNumber,
+            expiryDate: expiryDate,
+            cvv: cvv
+        });
+    });
+</script>
+
+<!--
+
+<div id="visa-checkout-button">
+</div>
+
+<script>
+    V.init({
+        apikey: "YOUR_API_KEY",
+        paymentRequest:{
+            currencyCode: "USD",
+            total: "100.00",
+        }
+    });
+
+    V.on("payment.success", function(payment) {
+        // Handle payment success
+        console.log("Payment Successful: ", payment);
+    });
+
+    V.on("payment.cancel", function(payment) {
+        // Handle payment cancellation
+        console.log("Payment Cancelled");
+    });
+
+    V.on("payment.error", function(payment, error) {
+        // Handle payment error
+        console.log("Payment Error: ", error);
+    });
+</script>
+-->
