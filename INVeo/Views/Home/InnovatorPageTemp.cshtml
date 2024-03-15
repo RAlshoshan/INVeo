@@ -1,5 +1,7 @@
 ﻿@model INVeo.Models.Idea 
-
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -77,13 +79,27 @@
 </style>
 
 <div class="container text-center">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="container text-center">
+            <!--Information about Investor Section -->
+            <section class="user-info">
+                <h2>Innovator Name: @User.Identity?.Name</h2>
+                <a class="btn btn-secondary" asp-controller="Home" asp-action="ViewContract">View Contracts</a>
+            </section>
+        </div>
 
+    }
+    else
+    {
     <!--Information about Innovator Section -->
     <section class="user-info">
         <h2>Innovator Name</h2>
         <p>Experiences...</p>
         <a class="btn btn-secondary" asp-controller="Home" asp-action="ViewContract">View Contracts</a>
     </section>
+        
+    }
  
     <!--Requests Section -->
     <section class="requests">
@@ -109,14 +125,20 @@
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label">Description:</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <!--
+
                 <input asp-for="Description" class="form-control" />
+                -->
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+            <!--
             <div class="form-group">
                 <label asp-for="IdeaId" class="control-label">IdeaId:</label>
                 <input asp-for="IdeaId" class="form-control" />
                 <span asp-validation-for="IdeaId" class="text-danger"></span>
             </div>
+            -->
             <div class="form-group">
                 <label asp-for="Seller" class="control-label">Seller:</label>
                 <input asp-for="Seller" class="form-control" />
@@ -133,12 +155,12 @@
                 <input asp-for="IsAvailable" class="form-control" />
                 <span asp-validation-for="IsAvailable" class="text-danger"></span>
             </div>
-            -->
             <div class="form-group">
                 <label asp-for="SmartContractAddress" class="control-label">SmartContractAddress:</label>
                 <input asp-for="SmartContractAddress" class="form-control" />
                 <span asp-validation-for="SmartContractAddress" class="text-danger"></span>
             </div>
+            -->
             <div class="form-group col">
                 <label asp-for="IdeaFile" class="control-label">IdeaFile</label>
                 <input type="file" name="ideaFile" class="form-control" />

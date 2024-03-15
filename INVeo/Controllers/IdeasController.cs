@@ -77,7 +77,7 @@ namespace INVeo.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,IdeaId,Seller,Price,SmartContractAddress")] Idea idea)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,IdeaId,Seller,Price")] Idea idea)
         {
             //// Uploaded files by use GUID
             //if (ideaFile != null)
