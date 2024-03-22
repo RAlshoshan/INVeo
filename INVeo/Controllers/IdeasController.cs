@@ -10,6 +10,10 @@ using INVeo.Models;
 using System.Text;
 using System.Security.Cryptography;
 using Org.BouncyCastle.Asn1.Ocsp;
+using System.Numerics;
+using INVeo.Services;
+using NBitcoin.Secp256k1;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace INVeo.Controllers
 {
@@ -196,6 +200,38 @@ namespace INVeo.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        // Idea With Blockchain
+        public async Task CreateIdeaAsync(Idea model)
+        {
+            BlockchainService blockchainService = new BlockchainService();
+            string contractAddress = await blockchainService.DeployContractAsync(model.Title, model.Description, new BigInteger(model.Price));
+
+            // Assuming you have a method to save the idea to your database
+            var idea = new Idea
+            {
+                Title = model.Title,
+                Description = model.Description,
+                Price = model.Price,
+                Seller = model.Seller,
+                IsAvailable = true,
+                SmartContractAddress = contractAddress
+            };
+
+            SaveIdea(idea);
+        }
+
+        // Save Idea
+        private async Task SaveIdea(Idea idea)
+        {
+            using (var context = new ApplicationDbContext(_context.GetService<DbContextOptions<ApplicationDbContext>>()))
+            {
+                context.Idea.Add(idea);
+                await context.SaveChangesAsync();
+            }
+        }
+
+
         /*
         public static string GenerateBlockchainIdentity(Idea idea)
         {
